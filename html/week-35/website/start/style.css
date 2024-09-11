@@ -1,0 +1,247 @@
+
+:root {
+    --orange:rgba(165, 107, 0, 0);
+    --brown:rgba(20, 38, 39, 0.87);
+    --white: rgb(238, 238, 237);
+    --text-background: rgba(65, 50, 34, 0.678);
+    --background: rgba(46, 37, 29, 0.808);
+    --yellow: rgb(255, 251, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0;
+    background-image: linear-gradient(to bottom left, rgba(44, 39, 28, 0.733), rgb(17, 13, 2));
+}
+
+#top-section {
+
+    display: block;
+
+    
+
+    margin: 0px;
+
+    background-image: url(/html/week-35/website/images/zaji-kanamajina-JpvuRFYb_Jg-unsplash-2.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 0;
+    padding-bottom: 66.6%;
+}
+
+header {
+    background-color: var(--orange);
+    
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+
+    margin: 0;
+    padding: 1rem;
+    
+}
+
+main {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav {
+    margin: 0;
+    /* font-weight: bold; */
+    font-size: small;
+}
+
+
+
+/* nav:hover {
+    font-size: larger;
+} */
+
+
+
+ul {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-right: 1rem;
+    list-style: none;
+
+    margin: 0;
+    padding: 0.2rem;
+}
+
+a {
+    justify-content: space-around;
+    text-decoration: none;
+
+    color: var(--white);
+
+    margin: 0;
+
+    backdrop-filter: blur(2px);
+    border-radius: 1rem;
+    
+    font-weight: bold;
+
+    
+}
+
+.hover-scale-button {
+    transition: all ease-out 0.1s;
+    
+    &:hover {
+        transform: scale(1.1);
+    }   
+}
+
+div#top-section > div > header > ul > li > a {
+    font-size: small;
+}
+
+h1 {
+
+    color: var(--white);
+    font-weight: bolder;
+
+    font-size: 5.5vw;
+
+    
+
+    /* background-color: var(--text-background);
+
+    border-radius: 5rem; */
+}
+
+div#top-section > div {
+    background-color: var(--text-background);
+
+    border-radius: 1px;
+
+    padding-left: 3%;
+    padding-right: 2%;
+    
+
+    width: 100%;
+}
+
+
+div#top-section > div > p {
+    
+    color: var(--white);
+    
+    font-size: 3.5vw;
+    
+    font-weight: bold;
+
+    padding-left: 0;
+    /* padding: 3%; */
+    
+    /* border-radius: 5rem;
+    
+    background-color: var(--text-background); */
+    
+}
+
+p {
+    padding-left: 1rem;
+    
+    /* background-color: var(--brown); */
+
+    font-weight: 400;
+    
+    /* border-radius: 0.5rem; */
+    
+    color: var(--white);
+    
+}
+
+body > main > section {
+    background-image: url(/html/week-35/website/images/david-cain-TVPI5pHpNFw-unsplash.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    max-width: 700px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body > main > section > ul {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+
+    font-size: larger;
+
+    color: var(--yellow);
+
+    width: fit-content;
+
+    backdrop-filter: blur(5px);
+    border-radius: 4%;
+
+    padding: .5rem;
+}
+
+body > main > section > p {
+    font-size: large;
+    font-weight: normal;
+    text-align: center;
+
+    padding: 1rem;
+}
+
+h3 {
+    color: var(--white);
+    text-align: center;
+}
+
+footer {
+    /* padding: 0.5rem; */
+    font: bolder;
+    /* background-color: rgba(53, 60, 66, 0.74); */
+    
+    border-top: 2px;
+    border-top-color: rgba(135, 138, 120, 0.164);
+    border-top-style: solid;
+
+    color: var(--white);
+
+    padding-top: 1rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+
+footer > ul {
+    display: flex;
+    flex-direction: column;
+    
+}
+
