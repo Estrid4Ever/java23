@@ -1,0 +1,14 @@
+{
+  "Stockholm": [
+    {
+      "butik": "Sergelstorg",
+      "plats": {"locx": 123, "locy": 456},
+      "öppettider": "10:00-19:00"
+    },
+    {
+      "butik": "Mall of Scandinavia",
+      "plats": {"locx": 123, "locy": 456},
+      "öppettider": "10:00-19:00"
+    }
+  ]
+}

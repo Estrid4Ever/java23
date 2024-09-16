@@ -1,0 +1,13 @@
+body {
+  width: 100vw;
+}
+h1 {
+  text-align: center;
+}
+#card-container {
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
