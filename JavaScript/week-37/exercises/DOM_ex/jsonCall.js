@@ -29,11 +29,24 @@ console.log(nums)
 
 
 var obs = [
-    {name: "hej"},
-    {name: "då"},
-    {name: "bang"}
+    {
+        name: "hej",
+        color: "blue"
+    },
+    {
+        name: "då",
+        color: "red"
+    },
+    {
+        name: "bang",
+        color: "yellow"
+    }
 ];
 
-obs.sort(a, b (a.name > b.name))
+obs.sort((a, b) => (a.color > b.color))
 
-console.table(obs)
+console.table(obs.filter((obj) => obj.name.length > 3))
+
+var html = frukter.map((x) => `<li>${x}</li>`)
+
+console.log(html)
