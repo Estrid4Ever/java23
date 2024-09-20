@@ -1,0 +1,12 @@
+{
+  "name": "labb-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest --watch"
+  }
+}
