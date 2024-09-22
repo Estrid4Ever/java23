@@ -2,8 +2,10 @@
 
 const fetchData = jest.fn();
 const setDaySpecialContent = jest.fn();
+
+const document = global.document
    
-const renderSpecial = require("../script/app");
+const renderSpecial = require("../src/script/app");
 
 let currentDayIndex = new Date('2024-09-16T12:00:00Z');
 
@@ -39,7 +41,7 @@ const mockSpecialsData = {
         ]
     }
 };
-
+ 
 
 describe('renderRelevantSpecal', () => {
     beforeEach(() => {
