@@ -1,97 +1,88 @@
-async function fetchData() {
+async function fetchWeather(path) {
+  const data = await fetch(path)
+    .then(response => response.json())
 
-    try {
-        const response = await fetch('./weather.json')
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("error: ", error);
-
-    }
+    return data
 }
 
-var modifier = 0;
+async function renderWeather() {
+  const url = "./weather.json";
+  const weatherData = await fetchWeather(url)
+  const currentFormattedDate = date.toISOString().substring(0, 10)
 
-async function readData() {
+  const currentDayWeather = weatherData.weather_data
+    .find(data => currentFormattedDate === data.date);
 
-    const weatherData = await fetchData();
-    
-    
-    function loop() {
-        
-        const date = new Date()
+    const temperatures = currentDayWeather.temperatures.split("-")
 
-        date.setDate(date.getDate() + modifier)
+    const currentHour = date.getHours();
+    let currentTemp;
+    const morningTime = currentHour < 10
+    const middayTime = currentHour > 10 && currentHour < 17
 
-        var dateArray = date.toISOString().split("T")
-
-        console.log(dateArray[0])
-
-        for (const element of weatherData.weather_data) {
-            if (element.date == dateArray[0]) {
-                addContent(element.temperatures, "#tempratur")
-                return
-            } else {
-                console.log("nooooothin")
-            }
-        }
-
+    if (morningTime) {
+      currentTemp = temperatures[0]
+    } else if (middayTime) {
+      currentTemp = temperatures[1]
+    } else {
+      currentTemp = temperatures[2]
     }
 
-    loop()
-
-    function buttonPress() {
-
-        const btn = document.querySelector("#button-next")
-        btn.addEventListener('click', () => {
-            if(modifier === 0) {
-                modifier = 1;
-                btn.textContent = "Vädret Idag"
-            } else {
-                modifier = 0;
-                btn.textContent = "Vädret Imorgon"
-            }
-            loop()
-        })
-        
-
-    }
-
-    buttonPress()
-
+  printWeather(currentTemp)
 }
 
+renderWeather()
 
-readData()
+function printWeather(input) {
+  const weatherContent = document.querySelector("#tempratur");
 
-
-function addContent(content, id) {
-    const contentIdentifier = document.querySelector(id)
-    contentIdentifier.textContent = content;
+  weatherContent.textContent = "Senaste mätning: " + input
 }
 
+const todayDisplay = document.querySelector("#today");
 
+const veckoDagar = [
+  "Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"
+];
+
+let date = new Date();
+let currentDay = date.getDay()
+const formatDate = date.getDate() + "/" + (date.getMonth() + 1)
+console.log(currentDay)
+
+const nextWeatherDay = document.querySelector("#button-next");
+nextWeatherDay.addEventListener('click', nextDay)
+
+function nextDay() {
+  
+  if (currentDay < 6) {
+    currentDay += 1
+  } else {
+    currentDay = 0
+  }
+
+  console.log("current day:", currentDay)
+  formatTime(currentDay);
+}
+
+const formatTime = (day) => {
+    // date = new Date()
+
+    console.log("pow", day)
+
+    const currentHour = date.getHours()
+    const currentMinute = date.getMinutes().toString().padStart(2, '0');
+    const currentSecond = date.getSeconds().toString().padStart(2, '0')
+    const currentDate = `(${date.getDate()}/${(date.getMonth() + 1)})`
+    const currentDay2 = veckoDagar[day];
+
+    // dag - tid - (datum)
+    todayDisplay.textContent = `
+    ${currentDay2} kl: ${currentHour}:${currentMinute}:${currentSecond} ${currentDate}
+    `
+
+
+};
 setInterval(() => {
-    
-    const date = new Date()
-
-    date.setDate(date.getDate() + modifier)
-
-    var dateTimeArray = date.toISOString().split("T")
-    var dateFormatted = date.toLocaleDateString()
-        .split("/").filter((x) => x.length < 3).join("/")
-
-    const time = dateTimeArray[1].substring(0, 8)
-
-    const veckoDagar = [
-        "Söndag", "Måndag", "Tisdag", "Onsdag",
-        "Torsdag", "Fredag", "Lördag"
-    ]
-
-    var weekday = veckoDagar[date.getDay()]
-
-    addContent((weekday + " kl: " + time + " " + dateFormatted)
-        , "#today")
+  formatTime(currentDay)
 }, 1000)
-
-
