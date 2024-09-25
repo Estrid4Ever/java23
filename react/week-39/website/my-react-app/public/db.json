@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+      "id": "1e6b",
+      "username": "Kajsa",
+      "feedback": "tack för bra ljus!",
+      "isAnonymous": false
+    },
+    {
+      "id": "b674",
+      "username": "Kalle",
+      "feedback": "Mycket bra tjänst!",
+      "isAnonymous": false
+    },
+    {
+      "id": "0d3a",
+      "username": "johan",
+      "feedback": "Lämnat anonymt bra beröm",
+      "isAnonymous": true
+    },
+    {
+      "id": "31aa",
+      "username": "",
+      "feedback": "Det blev fint men lite dyrt...",
+      "isAnonymous": true
+    }
+  ]
+}
